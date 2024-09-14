@@ -1,5 +1,6 @@
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 import * as dotenv from 'dotenv';
+import {User} from "../src/modules/user/user.model";
 
 dotenv.config();
 
@@ -10,6 +11,6 @@ export const DB_CONFIG: SequelizeModuleOptions = {
   username: process.env.POSTGRES_USERNAME,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  models: [],
   autoLoadModels: true,
+  models: [User],
 };
