@@ -39,5 +39,6 @@ npm run start:dev
 <h2>Docker</h2>
 
 ```
-По мере написания проекта, закину докер
+docker-compose build
+docker-compose up
 ```
