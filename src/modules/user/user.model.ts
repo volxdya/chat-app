@@ -1,4 +1,6 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {BelongsToMany, Column, DataType, Model, Table} from 'sequelize-typescript';
+import {UserChats} from "../chat/user-chats.model";
+import {Chat} from "../chat/chat.model";
 
 interface IUser {
   username: string;
@@ -20,4 +22,7 @@ export class User extends Model<User, IUser> {
 
   @Column({ type: DataType.STRING, allowNull: false })
   password: string;
+
+  @BelongsToMany(() => Chat, () => UserChats)
+  chats: Chat[];
 }

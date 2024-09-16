@@ -1,6 +1,8 @@
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 import * as dotenv from 'dotenv';
-import {User} from "../src/modules/user/user.model";
+import { User } from '../src/modules/user/user.model';
+import { Chat } from '../src/modules/chat/chat.model';
+import { UserChats } from '../src/modules/chat/user-chats.model';
 
 dotenv.config();
 
@@ -12,5 +14,5 @@ export const DB_CONFIG: SequelizeModuleOptions = {
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   autoLoadModels: true,
-  models: [User],
+  models: [User, Chat, UserChats],
 };
