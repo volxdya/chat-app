@@ -1,0 +1,27 @@
+version: '3.0'
+
+services:
+  main:
+    container_name: chat_api
+    build:
+      context: .
+    env_file:
+      - .env
+    command: npm run start:dev
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - .:/node_modules
+
+  postgres:
+    container_name: chat_api_pg
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+    image: postgres:13.3
+    environment:
+      PG_DATA: /var/lib/postgres/data
