@@ -17,19 +17,16 @@
 3. RabbitMQ
 4. Redis
 5. Telegram API
-6. Analytics API
-7. PostgreSQL
-8. Sequalize (ORM)
-9. SocketIO
-10. Unit Testing
+6. PostgreSQL
+7. Sequalize (ORM)
+8. SocketIO
+9. Unit Testing
 
 <h1>Запуск и установка зависимостей</h1>
 
 <h2>Backend</h2>
 
 Нужно иметь установленный PostgreSQL и Redis, если вы запускаете проект без докера.
-
-Но я советую поднимать БД и Кэши в Docker'e
 
 ```
 npm i
