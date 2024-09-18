@@ -12,7 +12,7 @@ export class ChatController {
   }
 
   @Get('get_one/:id')
-  getOne(@Param('id') id: number) {
+  async getOne(@Param('id') id: number) {
     return this.chatService.getOne(id);
   }
 }

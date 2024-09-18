@@ -19,9 +19,10 @@ export class ChatService {
     ];
 
     const chat: Chat = await this.chatModel.create(dto);
-    await chat.update('users', users);
+    chat.users = users;
+    await chat.$set('users', users);
 
-    return chat;
+    return users;
   }
 
   async getOne(chatId: number) {
