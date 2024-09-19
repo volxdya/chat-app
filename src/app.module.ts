@@ -5,6 +5,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { DB_CONFIG } from '../cfg/db.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { ChatModule } from './modules/chat/chat.module';
+import { MessagesModule } from './modules/messages/messages.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ChatModule } from './modules/chat/chat.module';
     UserModule,
     AuthModule,
     ChatModule,
+    MessagesModule
   ],
 })
 export class AppModule {}

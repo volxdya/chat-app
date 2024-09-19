@@ -2,11 +2,13 @@ import {
   BelongsToMany,
   Column,
   DataType,
+  HasMany,
   Model,
   Table,
 } from 'sequelize-typescript';
 import { User } from '../user/user.model';
 import { UserChats } from './user-chats.model';
+import { Message } from '../messages/messages.model';
 
 interface IChat {}
 
@@ -22,4 +24,7 @@ export class Chat extends Model<Chat, IChat> {
 
   @BelongsToMany(() => User, () => UserChats)
   users: User[];
+
+  @HasMany(() => Message)
+  messages: Message[];
 }

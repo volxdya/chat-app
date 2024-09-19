@@ -7,9 +7,13 @@ import { User } from '../user/user.model';
 import { UserChats } from './user-chats.model';
 import { UserService } from '../user/user.service';
 import { UserModule } from '../user/user.module';
+import { Message } from '../messages/messages.model';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Chat, User, UserChats]), UserModule],
+  imports: [
+    SequelizeModule.forFeature([Chat, User, UserChats, Message]),
+    UserModule,
+  ],
   providers: [ChatService],
   controllers: [ChatController],
 })
