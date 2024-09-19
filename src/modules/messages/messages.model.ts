@@ -7,6 +7,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { Chat } from '../chat/chat.model';
+import { User } from '../user/user.model';
 
 interface IMessage {
   text: string;
@@ -31,4 +32,11 @@ export class Message extends Model<Message, IMessage> {
 
   @BelongsTo(() => Chat)
   chat: Chat;
+
+  @ForeignKey(() => User)
+  @Column({ type: DataType.INTEGER })
+  userId: number;
+
+  @BelongsTo(() => User)
+  user: User;
 }

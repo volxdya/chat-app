@@ -5,9 +5,10 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Message } from './messages.model';
 import { Chat } from '../chat/chat.model';
 import { MessageGateway } from './message.gateway';
+import { User } from '../user/user.model';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Message, Chat])],
+  imports: [SequelizeModule.forFeature([Message, Chat, User])],
   controllers: [MessagesController],
   providers: [MessagesService, MessageGateway],
 })
