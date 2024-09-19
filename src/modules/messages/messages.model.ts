@@ -22,6 +22,9 @@ export class Message extends Model<Message, IMessage> {
   })
   id: number;
 
+  @Column({ type: DataType.STRING })
+  text: string;
+
   @ForeignKey(() => Chat)
   @Column({ type: DataType.INTEGER })
   chatId: number;

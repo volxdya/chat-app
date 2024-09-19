@@ -22,7 +22,7 @@ export class ChatService {
     chat.users = users;
     await chat.$set('users', users);
 
-    return users;
+    return chat;
   }
 
   async getOne(chatId: number) {

@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
-import { Model } from 'sequelize-typescript';
 import { CreateUserDto } from './dto/CreateUserDto';
 
 @Injectable()
