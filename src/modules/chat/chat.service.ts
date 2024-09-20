@@ -10,7 +10,7 @@ export class ChatService {
   constructor(
     @InjectModel(Chat) private readonly chatModel: typeof Chat,
     private readonly userService: UserService,
-  ) {}
+  ) { }
 
   async create(dto: CreateChatDto) {
     const users: User[] = [
