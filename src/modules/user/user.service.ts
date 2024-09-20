@@ -24,4 +24,17 @@ export class UserService {
       }
     );
   }
+
+  async getById(userId: number) {
+    return this.userModel.findOne(
+      {
+        where: { id: userId },
+        include: [Chat]
+      }
+    );
+  }
+
+  async me(userId: number) {
+    return this.getById(userId);
+  }
 }

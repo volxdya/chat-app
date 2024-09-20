@@ -1,6 +1,8 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/CreateUserDto';
+import { CheckUserGuard } from 'src/guards/check-user.guard';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 @Controller('user')
 export class UserController {
@@ -14,6 +16,12 @@ export class UserController {
   @Get('get_one/:username')
   getOne(@Param('username') username: string) {
     return this.userService.getOne(username);
+  }
+
+  @UseGuards(CheckUserGuard)
+  @Get('me/:userId')
+  me(@Param('userId') userId: number) {
+    return this.userService.me(userId);
   }
 
   @Get('get_all')

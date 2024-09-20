@@ -6,6 +6,8 @@ import { DB_CONFIG } from '../cfg/db.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { ChatModule } from './modules/chat/chat.module';
 import { MessagesModule } from './modules/messages/messages.module';
+import { JwtModule } from '@nestjs/jwt';
+import { JWT_CONFIG } from 'cfg/jwt.config';
 
 @Module({
   imports: [
@@ -14,10 +16,11 @@ import { MessagesModule } from './modules/messages/messages.module';
       envFilePath: '.env',
     }),
     SequelizeModule.forRoot(DB_CONFIG),
+    JwtModule.register(JWT_CONFIG),
     UserModule,
     AuthModule,
     ChatModule,
-    MessagesModule
+    MessagesModule,
   ],
 })
 export class AppModule {}
