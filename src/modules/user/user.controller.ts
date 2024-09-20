@@ -18,7 +18,7 @@ export class UserController {
     return this.userService.getOne(username);
   }
 
-  @UseGuards(CheckUserGuard)
+  @UseGuards(CheckUserGuard, AuthGuard)
   @Get('me/:userId')
   me(@Param('userId') userId: number) {
     return this.userService.me(userId);

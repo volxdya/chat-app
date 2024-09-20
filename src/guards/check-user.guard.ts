@@ -14,7 +14,7 @@ export class CheckUserGuard implements CanActivate {
         const request: Request = context.switchToHttp().getRequest();
 
         try {
-            const user = this.jwtService.verify(getToken(request));
+            const user = this.jwtService.verify(getToken(request)[1]);
 
             if (request.params.userId == user.id) {
                 return true;
