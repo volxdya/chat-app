@@ -16,7 +16,7 @@ export class CheckUserGuard implements CanActivate {
         try {
             const user = this.jwtService.verify(getToken(request)[1]);
 
-            if (request.params.userId == user.id) {
+            if (request.params.userId == user.id || request.body.userId == user.id) {
                 return true;
             }
 
@@ -24,7 +24,6 @@ export class CheckUserGuard implements CanActivate {
         }
 
         catch (err) {
-            console.log(err)
             throw new HttpException('ITERNAL SERVER ERROR', HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -6,7 +6,7 @@ export function getToken(req: Request): string[] {
     const bearer: string = header.split(' ')[0];
     const token: string = header.split(' ')[1];
 
-    if (bearer !== 'Bearer' || !token) {
+    if (bearer !== 'Bearer' || !token || !header) {
         throw new UnauthorizedException({ message: 'No token provided.' });
     }
 
