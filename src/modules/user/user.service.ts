@@ -35,6 +35,7 @@ export class UserService {
     return this.getById(userId);
   }
 
+  // пока что с багами, но это будет в фиксе
   async addFriend(dto: AddFriendDto) {
     const sender: User = await this.getById(dto.senderId);
     const recipient: User = await this.getById(dto.recipientId);
