@@ -8,7 +8,6 @@ import { ChatModule } from './modules/chat/chat.module';
 import { MessagesModule } from './modules/messages/messages.module';
 import { JwtModule } from '@nestjs/jwt';
 import { JWT_CONFIG } from 'cfg/jwt.config';
-import { FriendsModule } from './modules/friends/friends.module';
 
 @Module({
   imports: [
@@ -22,7 +21,6 @@ import { FriendsModule } from './modules/friends/friends.module';
     AuthModule,
     ChatModule,
     MessagesModule,
-    FriendsModule,
   ],
 })
 export class AppModule {}

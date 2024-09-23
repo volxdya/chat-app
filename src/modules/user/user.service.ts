@@ -17,21 +17,17 @@ export class UserService {
   }
 
   async getOne(username: string) {
-    return this.userModel.findOne(
-      {
-        where: { username },
-        include: [Chat]
-      }
-    );
+    return this.userModel.findOne({
+      where: { username },
+      include: { all: true },
+    });
   }
 
   async getById(userId: number) {
-    return this.userModel.findOne(
-      {
-        where: { id: userId },
-        include: [Chat]
-      }
-    );
+    return this.userModel.findOne({
+      where: { id: userId },
+      include: [Chat],
+    });
   }
 
   async me(userId: number) {

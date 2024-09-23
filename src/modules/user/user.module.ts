@@ -8,10 +8,11 @@ import { UserChats } from '../chat/user-chats.model';
 import { Message } from '../messages/messages.model';
 import { JwtModule } from '@nestjs/jwt';
 import { JWT_CONFIG } from 'cfg/jwt.config';
+import { UserFriends } from './user-friends.model';
 
 @Module({
   imports: [
-    SequelizeModule.forFeature([User, Chat, UserChats, Message]),
+    SequelizeModule.forFeature([User, Chat, UserChats, Message, UserFriends]),
     JwtModule.register(JWT_CONFIG),
   ],
   controllers: [UserController],
