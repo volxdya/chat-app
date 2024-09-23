@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Message } from './messages.model';
-import { CreateMessageDto } from './dto/CreateMessageDto';
+import { CreateMessageDto } from './dto/createMessageDto';
 
 @Injectable()
 export class MessagesService {

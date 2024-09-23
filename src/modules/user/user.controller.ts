@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/CreateUserDto';
+import { CreateUserDto } from './dto/createUserDto';
 import { CheckUserGuard } from 'src/guards/check-user.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
 
