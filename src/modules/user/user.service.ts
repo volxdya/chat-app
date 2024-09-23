@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
 import { Chat } from '../chat/chat.model';
 import { CreateUserDto } from './dto/createUserDto';
+import { AddFriendDto } from './dto/addFriendDto';
 
 @Injectable()
 export class UserService {
@@ -32,5 +33,14 @@ export class UserService {
 
   async me(userId: number) {
     return this.getById(userId);
+  }
+
+  async addFriend(dto: AddFriendDto) {
+    const sender: User = await this.getById(dto.senderId);
+    const recipient: User = await this.getById(dto.recipientId);
+
+    await sender.$add('friends', recipient);
+
+    return [sender, recipient];
   }
 }

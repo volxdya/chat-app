@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/createUserDto';
 import { CheckUserGuard } from 'src/guards/check-user.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { AddFriendDto } from './dto/addFriendDto';
 
 @Controller('user')
 export class UserController {
@@ -27,5 +28,10 @@ export class UserController {
   @Get('get_all')
   getAll() {
     return this.userService.getAll();
+  }
+
+  @Put('add_friend')
+  addFriend(@Body() dto: AddFriendDto){
+    return this.userService.addFriend(dto);
   }
 }

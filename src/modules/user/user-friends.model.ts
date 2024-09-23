@@ -7,10 +7,6 @@ export class UserFriends extends Model<UserFriends> {
   @Column({ type: DataType.INTEGER, allowNull: false })
   userId: number;
 
-  @ForeignKey(() => User)
-  @Column({ type: DataType.INTEGER, allowNull: false })
-  friendId: number;
-
   @BelongsTo(() => User, 'userId')
   user: User;
 
