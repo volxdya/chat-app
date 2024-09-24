@@ -30,6 +30,7 @@ export class UserController {
     return this.userService.getAll();
   }
 
+  @UseGuards(CheckUserGuard, AuthGuard)
   @Put('add_friend')
   addFriend(@Body() dto: AddFriendDto){
     return this.userService.addFriend(dto);

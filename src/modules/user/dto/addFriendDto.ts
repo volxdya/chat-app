@@ -1,4 +1,4 @@
 export class AddFriendDto {
-  readonly senderId: number;
+  readonly userId: number;
   readonly recipientId: number;
 }
