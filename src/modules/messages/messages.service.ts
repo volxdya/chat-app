@@ -5,7 +5,7 @@ import { CreateMessageDto } from './dto/createMessageDto';
 
 @Injectable()
 export class MessagesService {
-  constructor(@InjectModel(Message) private messagesModel: typeof Message) {}
+  constructor(@InjectModel(Message) private messagesModel: typeof Message) { }
 
   async create(dto: CreateMessageDto) {
     return this.messagesModel.create(dto);
@@ -13,5 +13,11 @@ export class MessagesService {
 
   async getAll() {
     return this.messagesModel.findAll({ include: { all: true } });
+  }
+
+  async getLastMessages(chatId: number) {
+    const messages: Message[] = await this.messagesModel.findAll({ where: { chatId } });
+
+    return messages;
   }
 }

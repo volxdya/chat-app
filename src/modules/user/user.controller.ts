@@ -19,6 +19,11 @@ export class UserController {
     return this.userService.getOne(username);
   }
 
+  @Get('get_by_id/:userId')
+  getById(@Param('userId') userId: number) {
+    return this.userService.getById(userId);
+  }
+
   @UseGuards(CheckUserGuard, AuthGuard)
   @Get('me/:userId')
   me(@Param('userId') userId: number) {

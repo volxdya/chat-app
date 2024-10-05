@@ -4,6 +4,7 @@ import { User } from './user.model';
 import { Chat } from '../chat/chat.model';
 import { CreateUserDto } from './dto/createUserDto';
 import { AddFriendDto } from './dto/addFriendDto';
+import { Message } from '../messages/messages.model';
 
 @Injectable()
 export class UserService {

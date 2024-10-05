@@ -13,7 +13,7 @@ import {
       const response = ctx.getResponse<Response>();
       const request = ctx.getRequest<Request>();
       const status = exception.getStatus();
-  
+        
       const errorResponse = {
         statusCode: status,
         timestamp: new Date().toISOString(),

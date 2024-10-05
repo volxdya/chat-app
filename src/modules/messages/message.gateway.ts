@@ -7,9 +7,6 @@ import {
 import { MessagesService } from './messages.service';
 import { CreateMessageDto } from './dto/createMessageDto';
 import { Message } from './messages.model';
-import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { CheckUserGuard } from 'src/guards/check-user.guard';
 
 @WebSocketGateway()
 export class MessageGateway {
