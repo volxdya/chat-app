@@ -12,6 +12,11 @@ export class MessagesController {
     return this.messagesService.getAll();
   }
 
+  @Post('create')
+  create(@Body() dto: CreateMessageDto) {
+    return this.messagesService.create(dto);
+  }
+
   @Get(`get_last/:chatId`)
   getLast(@Param('chatId') chatId: number) {
     return this.messagesService.getLastMessages(chatId);

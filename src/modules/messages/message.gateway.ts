@@ -13,8 +13,8 @@ export class MessageGateway {
   constructor(private readonly messagesService: MessagesService) { }
 
   @SubscribeMessage('send_message')
-  async handleEvent(@MessageBody() dto: CreateMessageDto): Promise<Message> {
-    const message: Message = await this.messagesService.create(dto);
+  async handleEvent(@MessageBody() dto: CreateMessageDto) {
+    const message = await this.messagesService.create(dto);
     return message;
   }
 }
