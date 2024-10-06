@@ -8,6 +8,7 @@ import { MessageGateway } from './message.gateway';
 import { User } from '../user/user.model';
 import { JwtModule } from '@nestjs/jwt';
 import { JWT_CONFIG } from 'cfg/jwt.config';
+import { Crypt } from 'utils/crypt';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { JWT_CONFIG } from 'cfg/jwt.config';
     JwtModule.register(JWT_CONFIG)
   ],
   controllers: [MessagesController],
-  providers: [MessagesService, MessageGateway],
+  providers: [MessagesService, MessageGateway, Crypt],
+  exports: [Crypt]
 })
 export class MessagesModule { }
