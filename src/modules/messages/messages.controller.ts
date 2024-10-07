@@ -17,6 +17,7 @@ export class MessagesController {
     return this.messagesService.create(dto);
   }
 
+  @UseGuards(AuthGuard)
   @Get(`get_last/:chatId`)
   getLast(@Param('chatId') chatId: number) {
     return this.messagesService.getLastMessages(chatId);
