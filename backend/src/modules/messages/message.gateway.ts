@@ -6,7 +6,6 @@ import {
 } from '@nestjs/websockets';
 import { MessagesService } from './messages.service';
 import { CreateMessageDto } from './dto/createMessageDto';
-import { Message } from './messages.model';
 
 @WebSocketGateway()
 export class MessageGateway {

@@ -12,7 +12,6 @@ export class AuthGuard implements CanActivate {
 
         try {
             getToken(request);
-
             return true;
         }
 

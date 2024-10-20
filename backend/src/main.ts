@@ -11,7 +11,7 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter());
 
   await app.listen(PORT, () => {
-    console.log('http://localhost:3000');
+    console.log(`http://localhost:${PORT}`);
   });
 
   if (module.hot) {

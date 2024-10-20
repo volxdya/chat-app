@@ -9,9 +9,9 @@ export class AuthService {
   // Инициализация зависимостей
 
   constructor(
-    private readonly UserService: UserService,
+    private readonly userService: UserService,
     private readonly jwtService: JwtService,
-  ) {}
+  ) { }
 
   // Функция, которая проверяет приходящий пароль и ХЭШ пароль
   private validatePassword(password: string, userPassword: string): boolean {
@@ -20,7 +20,7 @@ export class AuthService {
 
   // Функция, которая проверяет пользователя
   private async validateUser(dto: CreateUserDto) {
-    const user: User = await this.UserService.getOne(dto.username);
+    const user: User = await this.userService.getOne(dto.username);
 
     if (user && (await this.validatePassword(dto.password, user.password))) {
       return user;
@@ -47,13 +47,11 @@ export class AuthService {
 
   async login(dto: CreateUserDto) {
     const user: User = await this.validateUser(dto);
-
     return this.generateToken(user);
   }
 
   async register(dto: CreateUserDto) {
-    const user: User = await this.UserService.create(dto);
-
+    const user: User = await this.userService.create(dto);
     return this.generateToken(user);
   }
 }

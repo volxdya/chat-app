@@ -1,9 +1,11 @@
+import { Route, Routes } from "react-router-dom";
+import { Chat } from "./components/Chat/Chat";
 
-function App() {
-
+export default function App() {
   return (
-    <div>123</div>
+    <Routes>
+      <Route path="/" element={<Chat />} />
+    </Routes>
   )
 }
 
-export default App
