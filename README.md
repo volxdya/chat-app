@@ -39,3 +39,6 @@ npm run start:dev
 docker-compose build
 docker-compose up
 ```
+
+<h2>Frontend?</h2>
+<p>Когда-нибудь допилю...</p>
