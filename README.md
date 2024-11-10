@@ -26,18 +26,34 @@
 
 <h2>Backend</h2>
 
-Нужно иметь установленный PostgreSQL и Redis, если вы запускаете проект без докера.
+> [!NOTE]
+> ### Нужно иметь установленный PostgreSQL и Redis, если вы запускаете проект без докера.
+
+### Установка зависимостей
 
 ```
-npm i
-npm run start:dev
+$ npm install
+```
+
+### Запуск сервера
+
+```
+$ npm run start:dev
 ```
 
 <h2>Docker</h2>
 
+
+### Билд имеджей
+
 ```
-docker-compose build
-docker-compose up
+$ docker-compose build
+```
+
+### Запуск контейнеров
+
+```
+$ docker-compose up
 ```
 
 <h2>Frontend?</h2>
